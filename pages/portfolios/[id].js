@@ -1,14 +1,22 @@
 import axios from 'axios';
-import BaseLayout from '../components/layout/BaseLayout';
+import Head from 'next/head';
+import BasePage from '@/components/BasePage';
+import BaseLayout from '@/components/layout/BaseLayout';
 
 const Portfolio = ({ post }) => {
   const { title, body, id } = post;
   return (
     <BaseLayout>
-      <h1>I am Portfolio Page</h1>
-      <h1>{title}</h1>
-      <p>{body}</p>
-      <p>ID:{id}</p>
+      <Head>
+        <title>Portfolio Detail</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <BasePage>
+        <h1>I am Portfolio Page</h1>
+        <h1>{title}</h1>
+        <p>{body}</p>
+        <p>ID:{id}</p>
+      </BasePage>
     </BaseLayout>
   );
 };

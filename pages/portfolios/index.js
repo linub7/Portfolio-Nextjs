@@ -1,13 +1,15 @@
-import BaseLayout from '../components/layout/BaseLayout';
 import axios from 'axios';
-// import Link from 'next/link';
-import { Link } from '../routes';
+import Link from 'next/link';
+
+import Head from 'next/head';
+import BaseLayout from '@/components/layout/BaseLayout';
+import BasePage from '@/components/BasePage';
 
 const Portfolios = ({ posts }) => {
   const renderPosts = (posts) => {
     return posts?.map((post) => (
       <li key={post.id} className="text-xl">
-        <Link route={`/portfolios/${post.id}`}>
+        <Link href={`/portfolios/${post.id}`} passHref>
           <a>{post.title}</a>
         </Link>
       </li>
@@ -15,7 +17,13 @@ const Portfolios = ({ posts }) => {
   };
   return (
     <BaseLayout>
-      <ul>{renderPosts(posts)}</ul>
+      <Head>
+        <title>Portfolios</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <BasePage>
+        <ul>{renderPosts(posts)}</ul>
+      </BasePage>
     </BaseLayout>
   );
 };
