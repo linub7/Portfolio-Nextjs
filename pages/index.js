@@ -3,11 +3,14 @@ import BaseLayout from '@/components/layout/BaseLayout';
 import { Col, Container, Row } from 'reactstrap';
 import Typed from 'react-typed';
 import Head from 'next/head';
+import { useGetUser } from '@/actions/user';
 
 const ROLES = ['Developer', 'Tech Lover', 'Team Player', 'React.js', 'Node.js'];
 const Index = () => {
+  const { data, loading } = useGetUser();
+
   return (
-    <BaseLayout className="cover">
+    <BaseLayout user={data} loading={loading} className="cover">
       <Head>
         <title>Home</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />

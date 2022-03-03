@@ -5,14 +5,13 @@ import {
   Nav,
   Navbar,
   NavbarBrand,
-  NavbarText,
   NavbarToggler,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
 } from 'reactstrap';
+import LoginBtn from '@/components/auth/LoginBtn';
+import LogoutBtn from '@/components/auth/LogoutBtn';
 
-const Header = () => {
+const Header = ({ user, loading }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -63,6 +62,21 @@ const Header = () => {
                 <a className="nav-link port-navbar-link">Cv</a>
               </Link>
             </NavItem>
+          </Nav>
+          <Nav navbar>
+            {!loading && (
+              <>
+                {!user ? (
+                  <NavItem className="port-navbar-item">
+                    <LoginBtn />
+                  </NavItem>
+                ) : (
+                  <NavItem className="port-navbar-item">
+                    <LogoutBtn />
+                  </NavItem>
+                )}
+              </>
+            )}
           </Nav>
         </Collapse>
       </Navbar>

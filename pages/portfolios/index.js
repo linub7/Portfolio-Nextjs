@@ -1,11 +1,12 @@
 import axios from 'axios';
 import Link from 'next/link';
-
 import Head from 'next/head';
 import BaseLayout from '@/components/layout/BaseLayout';
 import BasePage from '@/components/BasePage';
+import { useGetUser } from '@/actions/user';
 
 const Portfolios = ({ posts }) => {
+  const { data, loading } = useGetUser();
   const renderPosts = (posts) => {
     return posts?.map((post) => (
       <li key={post.id} className="text-xl">
@@ -16,7 +17,7 @@ const Portfolios = ({ posts }) => {
     ));
   };
   return (
-    <BaseLayout>
+    <BaseLayout user={data} loading={loading}>
       <Head>
         <title>Portfolios</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
