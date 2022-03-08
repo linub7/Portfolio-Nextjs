@@ -3,7 +3,7 @@ const Dotenv = require('dotenv-webpack');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   webpack: (config) => {
     config.resolve.alias['@'] = path.resolve(__dirname);
     config.plugins.push(new Dotenv({ silent: true }));

@@ -1,0 +1,43 @@
+.portfolio-page {
+  min-height: 100vh;
+  padding: 150px 0 0;
+  /* background-color: white; */
+}
+.portfolio-page .portfolio-card {
+  background-image: linear-gradient(45deg, #4e54c8 0%, #8f94fb 100%);
+  border: none;
+  color: white;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+  margin-bottom: 20px;
+}
+.portfolio-page .portfolio-card:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+.portfolio-page .portfolio-card:hover .readMore:before {
+  background: linear-gradient(to right, #fff 0%, #fff 100%);
+}
+.portfolio-page .portfolio-card-header {
+  padding: 3px;
+  padding-right: 7px;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 17px;
+}
+.portfolio-page .portfolio-card-title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.portfolio-page .portfolio-card-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 50px;
+}
+.portfolio-page .create-port-btn {
+  margin-bottom: 20px;
+}

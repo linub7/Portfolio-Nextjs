@@ -6,6 +6,8 @@
 /* Pages */
 @import './_index.css';
 
+@import './_portfolio.css';
+
 html,
 body {
   height: 100%;
@@ -22,8 +24,15 @@ body {
 }
 
 .base-page {
-  padding-top: 150px;
-  color: white;
+  padding: 150px 0;
+  color: black;
+  background-color: #ecedee;
+  min-height: 100vh;
+}
+.base-page .page-header-title {
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
 .self-typed {

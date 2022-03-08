@@ -10,7 +10,12 @@ const Index = () => {
   const { data, loading } = useGetUser();
 
   return (
-    <BaseLayout user={data} loading={loading} className="cover">
+    <BaseLayout
+      user={data}
+      loading={loading}
+      className="cover"
+      navClass="transparent"
+    >
       <Head>
         <title>Home</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
