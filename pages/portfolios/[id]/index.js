@@ -1,15 +1,13 @@
-import axios from 'axios';
 import Head from 'next/head';
 import BasePage from '@/components/BasePage';
 import BaseLayout from '@/components/layout/BaseLayout';
 import { useGetUser } from '@/actions/user';
 import { useRouter } from 'next/router';
-import PortfolioApi from '../../lib/api/portfolios';
+import PortfolioApi from '@/lib/api/portfolios';
 
 const Portfolio = ({ portfolio }) => {
   const { data, loading } = useGetUser();
   const router = useRouter();
-  console.log(router);
 
   return (
     <BaseLayout user={data} loading={loading}>

@@ -1,14 +1,19 @@
 import { useForm } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
-const PortfolioForm = ({ onSubmit }) => {
+const PortfolioForm = ({ onSubmit, initialData = {} }) => {
   const {
     register,
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: initialData,
+  });
+
+  const router = useRouter();
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -17,7 +22,13 @@ const PortfolioForm = ({ onSubmit }) => {
   useEffect(() => {
     register('startDate');
     register('endDate');
-  }, []);
+  }, [register]);
+
+  useEffect(() => {
+    const { startDate, endDate } = initialData;
+    if (startDate) setStartDate(new Date(startDate));
+    if (endDate) setEndDate(new Date(endDate));
+  }, [initialData]);
 
   const handleDateChange = (dateType, setDate) => (date) => {
     setValue(dateType, endDate ? date : date.toISOString());
@@ -182,7 +193,7 @@ const PortfolioForm = ({ onSubmit }) => {
         )}
       </div>
       <button type="submit" className="btn btn-primary">
-        Create
+        {router.pathname === '/portfolios/[id]/edit' ? 'Edit' : 'Create'}
       </button>
     </form>
   );
