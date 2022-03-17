@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { createPortfolio } from './portfolios';
 
 export const fetcher = async (url) => {
   const res = await fetch(url);

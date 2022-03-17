@@ -8,6 +8,8 @@
 
 @import './_portfolio.css';
 
+@import './_blogs.css';
+
 html,
 body {
   height: 100%;

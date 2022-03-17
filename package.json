@@ -26,6 +26,7 @@
     "react-toastify": "^8.2.0",
     "react-typed": "^1.2.0",
     "reactstrap": "^9.0.1",
+    "slate-simple-editor": "https://github.com/Jerga99/slate-simple-editor",
     "swr": "^1.2.2"
   },
   "devDependencies": {

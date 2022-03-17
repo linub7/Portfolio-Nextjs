@@ -10,6 +10,8 @@ import {
 } from 'reactstrap';
 import LoginBtn from '@/components/auth/LoginBtn';
 import LogoutBtn from '@/components/auth/LogoutBtn';
+import AdminMenu from '@/components/AdminMenu';
+import { isAuthorized } from '@/utils/auth0';
 
 const Header = ({ user, loading, className }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,9 +72,12 @@ const Header = ({ user, loading, className }) => {
                     <LoginBtn />
                   </NavItem>
                 ) : (
-                  <NavItem className="port-navbar-item">
-                    <LogoutBtn />
-                  </NavItem>
+                  <>
+                    {isAuthorized(user, 'admin') && <AdminMenu />}
+                    <NavItem className="port-navbar-item">
+                      <LogoutBtn />
+                    </NavItem>
+                  </>
                 )}
               </>
             )}
